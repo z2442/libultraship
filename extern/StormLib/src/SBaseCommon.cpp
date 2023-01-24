@@ -372,8 +372,8 @@ ULONGLONG HashStringJenkins(const char * szFileName)
     LPBYTE pbFileName = (LPBYTE)szFileName;
     char szNameBuff[0x108];
     size_t nLength = 0;
-    unsigned int primary_hash = 1;
-    unsigned int secondary_hash = 2;
+    uint32_t primary_hash = 1;
+    uint32_t  secondary_hash = 2;
 
     // Normalize the file name - convert to uppercase, and convert "/" to "\\".
     if(pbFileName != NULL)
