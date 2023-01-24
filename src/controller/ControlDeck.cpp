@@ -5,15 +5,15 @@
 #include "DummyController.h"
 #include <Utils/StringHelper.h>
 #include "core/bridge/consolevariablebridge.h"
-#include <imgui.h>
 
-#ifndef __WIIU__
-#include "controller/KeyboardController.h"
-#include "controller/SDLController.h"
-#else
-#include "port/wiiu/WiiUGamepad.h"
-#include "port/wiiu/WiiUController.h"
+#ifndef __PSP__
+#include <imgui.h>
 #endif
+
+#ifdef __PSP__
+#include "controller/SDLController.h"
+#endif
+
 
 namespace Ship {
 
@@ -37,7 +37,7 @@ void ControlDeck::ScanPhysicalDevices() {
     }
 
     mPhysicalDevices.push_back(std::make_shared<DummyController>("Auto", "Auto", true));
-    mPhysicalDevices.push_back(std::make_shared<KeyboardController>());
+ //  mPhysicalDevices.push_back(std::make_shared<KeyboardController>());
 #else
     mPhysicalDevices.push_back(std::make_shared<DummyController>("Auto", "Auto", true));
 

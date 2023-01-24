@@ -396,7 +396,7 @@ if (CMAKE_SYSTEM_NAME STREQUAL "Windows")
     )
 endif()
 
-if (NOT CMAKE_SYSTEM_NAME STREQUAL "CafeOS")
+if (NOT CMAKE_SYSTEM_NAME STREQUAL "Generic")
     target_compile_definitions(libultraship PRIVATE
         ENABLE_OPENGL
         $<$<CONFIG:Debug>:_DEBUG>
