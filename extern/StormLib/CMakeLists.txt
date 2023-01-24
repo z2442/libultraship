@@ -20,6 +20,7 @@ option(STORM_BUILD_TESTS
 )
 
 set(SRC_FILES
+           src/psp/ftruncate.c
            src/adpcm/adpcm.cpp
            src/huffman/huff.cpp
            src/jenkins/lookup3.c
@@ -49,7 +50,7 @@ set(SRC_FILES
            src/SFileReadFile.cpp
            src/SFileVerify.cpp
            src/libtomcrypt/src/pk/rsa/rsa_verify_simple.c
-           src/libtomcrypt/src/misc/crypt_libc.c
+           src/libtomcrypt/src/misc/crypt_libc.c       
 )
 
 if(MSVC)

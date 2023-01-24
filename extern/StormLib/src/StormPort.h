@@ -302,6 +302,8 @@
   #include <errno.h>
   #include <malloc.h>
 
+  extern int ftruncate(int fd, off_t length);
+
   #ifndef __BIG_ENDIAN__
     #define STORMLIB_LITTLE_ENDIAN
   #endif
