@@ -150,7 +150,8 @@ source_group("Log\\SPDLog" FILES ${Source_Files__Log__SPDLog})
 target_sources(libultraship PRIVATE ${Source_Files__Log} ${Source_Files__Log__SPDLog})
 
 #=================== Menu ===================
-
+#FIXME -- DISABLE UI FOR PSP
+if (NOT CMAKE_SYSTEM_NAME STREQUAL "Generic")
 set(Source_Files__Menu
     ${CMAKE_CURRENT_SOURCE_DIR}/menu/Console.h
     ${CMAKE_CURRENT_SOURCE_DIR}/menu/Console.cpp
@@ -164,7 +165,7 @@ set(Source_Files__Menu
 
 source_group("Menu" FILES ${Source_Files__Menu})
 target_sources(libultraship PRIVATE ${Source_Files__Menu})
-
+endif()
 #=================== Misc ===================
 
 set(Source_Files__Misc
@@ -353,10 +354,17 @@ if (CMAKE_SYSTEM_NAME STREQUAL "CafeOS")
 endif()
 
 #=================== Linking ===================
-
+#FIXME -- DISABLE UI FOR PSP
+if (NOT CMAKE_SYSTEM_NAME STREQUAL "Generic")
 target_link_libraries(libultraship
     PRIVATE ZAPDUtils StrHash64
     PUBLIC ImGui Mercury storm tinyxml2
+)
+endif()
+
+target_link_libraries(libultraship
+    PRIVATE ZAPDUtils StrHash64
+    PUBLIC Mercury storm tinyxml2
 )
 
 if (CMAKE_SYSTEM_NAME STREQUAL "Darwin" OR CMAKE_SYSTEM_NAME STREQUAL "NintendoSwitch")
